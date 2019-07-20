@@ -1,6 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {PUBLIC_URL} from '../../constants/settings'
-import defaultImage from '../../images/dog_default_image.jpg'
+import defaultImage from '../../images/default_image.jpg'
 import './ImageLoader.css'
 
 function ImageLoader() {

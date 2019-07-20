@@ -1,4 +1,5 @@
 .image-container {
+  position: relative;
   height: 450px;
   width: 450px;
   border: 1px solid lightgray;
@@ -22,4 +23,9 @@
 }
 .image-container button {
   margin-bottom: 5px;
+}
+.image-container__loading {
+  position: absolute;
+  top: -20px;
+  right: -20px;
 }

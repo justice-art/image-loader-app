@@ -17,10 +17,11 @@ function ImageLoader() {
       setError(true);
     }
   });
+
   return (
-    <div className="image-loader-container">
+    <div className="image-container">
       <button onClick={getImage}> Get New! </button>
-      <div className="image-loader-container__image">
+      <div className="image-container__image">
         <img src={image} alt={"A dog"} />
         { error && <div style={{color: `red`}}>some error occurred, while fetching image</div> }
       </div>

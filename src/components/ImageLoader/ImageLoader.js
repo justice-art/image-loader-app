@@ -16,12 +16,11 @@ function ImageLoader() {
       const response = await fetch(PUBLIC_URL);
       const data = await response.json();
       setImage(data.message);
-      setLoading(false);
     } catch(err) {
       const errorMessage = getErrorMessage(err);
       setError(errorMessage);
-      setLoading(false);
     }
+    setLoading(false);
   });
 
   function getErrorMessage(err) {

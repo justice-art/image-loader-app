@@ -21,8 +21,12 @@ module.exports = {
       {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
+      },
+      { 
+        test: /\.(png|jpg|svg)$/, 
+        use: 'url-loader?limit=8192'
       }
-    ]
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({

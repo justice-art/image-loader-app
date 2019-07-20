@@ -6,8 +6,9 @@ import './ImageLoader.css'
 
 function ImageLoader() {
   const [image, setImage] = useState(defaultImage);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
+
   const getImage = useCallback(async () => {
     setError(false);
     setLoading(true);
@@ -17,19 +18,27 @@ function ImageLoader() {
       setImage(data.message);
       setLoading(false);
     } catch(err) {
-      console.log(err)
-      setError(true);
+      const errorMessage = getErrorMessage(err);
+      setError(errorMessage);
       setLoading(false);
     }
   });
+
+  function getErrorMessage(err) {
+    return err.message ? err.message : "Check your Internet connection!";
+  }
 
   return (
     <div className="image-container">
       <button onClick={getImage}> Get New! </button>
       <div className="image-container__image">
         <img src={image} alt={"A dog"} />
-        { error && <div style={{color: `red`}}>some error occurred, while fetching image</div> }
       </div>
+      { error && 
+        <div className="image-container__err">
+          {error}
+        </div>
+      }
       { loading &&
         <div className="image-container__loading">
           <Loader 

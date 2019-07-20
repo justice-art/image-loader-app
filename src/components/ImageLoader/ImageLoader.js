@@ -1,4 +1,5 @@
 import React, {useCallback, useState} from 'react';
+import {PUBLIC_URL} from '../../constants/settings'
 import defaultImage from '../../images/dog_default_image.jpg'
 import './ImageLoader.css'
 
@@ -8,8 +9,7 @@ function ImageLoader() {
   const getImage = useCallback(async () => {
     setError(false);
     try {
-      const url = 'https://dog.ceo/api/breeds/image/random';
-      const response = await fetch(url);
+      const response = await fetch(PUBLIC_URL);
       const data = await response.json()
       setImage(data.message)
     } catch(err) {

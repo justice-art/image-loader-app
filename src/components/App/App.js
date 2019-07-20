@@ -1,9 +1,12 @@
 import React from 'react'
+import ImageLoader from '../ImageLoader/ImageLoader.js'
 import './App.css'
 
 function App() {
   return (
-    <div className="app">App</div>
+    <div className="app">
+      <ImageLoader />
+    </div>
   )
 }
 
